@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane prefWidth="800" prefHeight="500" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vku.library.controller.LibraryController">
+    <top>
+        <VBox styleClass="header">
+            <Label text="HỆ THỐNG QUẢN LÝ THƯ VIỆN SỐ" styleClass="header-title"/>
+            <Label text="Phát triển bởi: Hoàng Phước Anh Quốc - Lớp: 25CE" styleClass="header-subtitle"/>
+        </VBox>
+    </top>
+    <left>
+        <VBox styleClass="sidebar" prefWidth="250">
+            <Label text="Thông tin sách mới" styleClass="section-title"/>
+            <VBox spacing="5">
+                <Label text="Tên sách:"/>
+                <TextField fx:id="txtTitle" promptText="Nhập tên sách..."/>
+            </VBox>
+            <VBox spacing="5">
+                <Label text="Số lượng:"/>
+                <TextField fx:id="txtQuantity" promptText="Nhập số lượng..."/>
+            </VBox>
+            <Button text="Thêm Sách Vào Kho" maxWidth="Infinity" styleClass="btn-primary" onAction="#handleAddBook"/>
+            <Separator style="-fx-padding: 10 0;"/>
+            <Label text="Nghiệp vụ" styleClass="section-title"/>
+            <Button text="Mượn Sách Đã Chọn" maxWidth="Infinity" styleClass="btn-secondary" onAction="#handleBorrowBook"/>
+            <Button text="Xóa Sách (Thủ thư)" maxWidth="Infinity" styleClass="btn-danger" onAction="#handleDeleteBook"/>
+            <Separator style="-fx-padding: 10 0;"/>
+            <Label text="Dữ liệu hệ thống" styleClass="section-title"/>
+            <Button text="Xuất Báo Cáo XML" maxWidth="Infinity" styleClass="btn-warning" onAction="#handleExportXML"/>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="10">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <Label text="Danh Sách Tài Liệu" styleClass="section-title"/>
+            <TableView fx:id="tableBooks" VBox.vgrow="ALWAYS" styleClass="table-view">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn fx:id="colId" text="Mã Sách" prefWidth="80" maxWidth="100"/>
+                    <TableColumn fx:id="colTitle" text="Tên Tài Liệu" prefWidth="250"/>
+                    <TableColumn fx:id="colQuantity" text="Số Lượng Tồn" prefWidth="120" maxWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

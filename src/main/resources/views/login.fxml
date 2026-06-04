@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="15" prefWidth="400" prefHeight="350" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vku.library.controller.LoginController">
+    <padding>
+        <Insets top="30" right="40" bottom="30" left="40"/>
+    </padding>
+
+    <Label text="ĐĂNG NHẬP HỆ THỐNG" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <VBox spacing="5">
+        <Label text="Tên đăng nhập:"/>
+        <TextField fx:id="txtUsername" promptText="Nhập tài khoản..." styleClass="text-field"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Mật khẩu:"/>
+        <PasswordField fx:id="txtPassword" promptText="Nhập mật khẩu..." styleClass="text-field"/>
+    </VBox>
+
+    <HBox spacing="15" alignment="CENTER" style="-fx-padding: 10 0 0 0;">
+        <Button text="Đăng Nhập" styleClass="btn-primary" onAction="#handleLogin"/>
+        <Button text="Đăng Ký" styleClass="btn-secondary" onAction="#handleRegister"/>
+    </HBox>
+</VBox>
