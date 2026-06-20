@@ -1,6 +1,8 @@
 package com.vku.library.controller;
 
+import com.vku.library.model.User;
 import com.vku.library.service.LibraryService;
+import com.vku.library.util.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +16,8 @@ import javafx.stage.Stage;
 public class LoginController {
     @FXML private TextField txtUsername;
     @FXML private PasswordField txtPassword;
+    // Gợi ý: Bạn có thể thêm một ComboBox hoặc RadioButton ở FXML để chọn Quyền khi đăng ký
+    // @FXML private ComboBox<String> cbRole;
 
     private LibraryService service = new LibraryService();
 
@@ -22,7 +26,11 @@ public class LoginController {
         String user = txtUsername.getText();
         String pass = txtPassword.getText();
 
-        if (service.loginUser(user, pass)) {
+        User loggedInUser = service.loginUser(user, pass);
+        if (loggedInUser != null) {
+            // Lưu thông tin đăng nhập vào hệ thống điện toán phiên
+            UserSession.setInstance(loggedInUser);
+
             try {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/library.fxml"));
@@ -46,8 +54,12 @@ public class LoginController {
             return;
         }
 
-        if (service.registerUser(user, pass)) {
-            showAlert("Thành công", "Đăng ký thành công! Hãy nhấn Đăng Nhập.");
+        // Tạm thời mặc định khi đăng ký qua giao diện này là "DOC_GIA"
+        // Nếu có ComboBox, bạn thay bằng: cbRole.getValue()
+        String role = "DOC_GIA";
+
+        if (service.registerUser(user, pass, role)) {
+            showAlert("Thành công", "Đăng ký thành công tài khoản Độc Giả! Hãy nhấn Đăng Nhập.");
         } else {
             showAlert("Lỗi Đăng Ký", "Tài khoản này đã tồn tại!");
         }

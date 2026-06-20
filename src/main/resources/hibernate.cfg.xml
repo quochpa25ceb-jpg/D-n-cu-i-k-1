@@ -12,5 +12,6 @@
 
         <mapping class="com.vku.library.model.Book"/>
         <mapping class="com.vku.library.model.User"/>
+        <mapping class="com.vku.library.model.BorrowHistory"/>
     </session-factory>
 </hibernate-configuration>

@@ -25,6 +25,7 @@
             <Separator style="-fx-padding: 10 0;"/>
             <Label text="Nghiệp vụ" styleClass="section-title"/>
             <Button text="Mượn Sách Đã Chọn" maxWidth="Infinity" styleClass="btn-secondary" onAction="#handleBorrowBook"/>
+            <Button fx:id="btnReturnBook" text="Trả Sách" onAction="#handleReturnBook" />
             <Button text="Xóa Sách (Thủ thư)" maxWidth="Infinity" styleClass="btn-danger" onAction="#handleDeleteBook"/>
             <Separator style="-fx-padding: 10 0;"/>
             <Label text="Dữ liệu hệ thống" styleClass="section-title"/>

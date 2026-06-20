@@ -1,1 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><Library><Book id="2"><Title>Hào sống lỗi</Title><Quantity>1</Quantity></Book></Library>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Library>
+    <Book id="3"><Title>Lập trình java</Title>
+        <Quantity>3</Quantity>
+    </Book></Library>
